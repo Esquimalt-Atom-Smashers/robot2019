@@ -68,17 +68,17 @@ public class ButtonPanel
     public boolean wasPressed(int index)
     {
 
-        return buttons[index - 1].pressed;
+        return buttons[index].pressed;
     }
 
     public boolean isDown(int index)
     {
-        return buttons[index - 1].down;
+        return buttons[index].down;
     }
 
     public boolean wasReleased(int index)
     {
-        return buttons[index - 1].released;
+        return buttons[index].released;
     }
 
 }
