@@ -14,7 +14,7 @@ public class PIDController implements Functions
   private int targetPosition = 0;
   private int currentPosition = 0;
   private int maxError;
-  private double maxPower = 0.2;
+  private double maxPower = 1;
   private int maxRate;
   private double lastError = 0;
   private double Kover = 1.5;
@@ -24,13 +24,14 @@ public class PIDController implements Functions
   private long lastT = 0;
 
 
-  public PIDController(double Kp, double Ki, double Kd, int maxError, int maxRate)
+  public PIDController(double Kp, double Ki, double Kd, int maxError, int maxRate, double maxPower)
   {
     this.Kp = Kp;
     this.Ki = Ki;
     this.Kd = Kd;
     this.maxError = maxError;
     this.maxRate = maxRate;
+    this.maxPower = maxPower;
   }
   
   public void setKp( double newKp ) 

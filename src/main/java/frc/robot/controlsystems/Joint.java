@@ -25,14 +25,14 @@ public class Joint implements Functions
 
   public static final int IN = 0;
 
-  public Joint(int pin, Encoder encoder, double Kp, double Ki, double Kd, int maxError, int TICKS_PER_REV, int maxRate)
+  public Joint(int pin, Encoder encoder, double Kp, double Ki, double Kd, int maxError, int TICKS_PER_REV, int maxRate, double maxPower)
   {
     this.TICKS_PER_REV = TICKS_PER_REV;
     TICKS_PER_DEGREE = (double)TICKS_PER_REV/360d;
     motor = new Talon(pin);
     this.encoder = encoder;
     encoder.reset();
-    PID = new PIDController(Kp, Ki, Kd, maxError, maxRate);
+    PID = new PIDController(Kp, Ki, Kd, maxError, maxRate, maxPower);
     PID.setTargetPosition(0);
   }
   public int angleToTicks(double angle)
@@ -76,7 +76,11 @@ public class Joint implements Functions
 
   public void goToTargetPosition()
   {
-      motor.set(PID.calculate(encoder.get()));
+      System.out.print(PID.calculate(encoder.get()));
+      System.out.print("\t");
+      System.out.println(encoder.get());
+
+      motor.set(-PID.calculate(encoder.get()));
   }
 
 

@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.Talon;
 
 public class Intake
 {
-    public static final int IN = 1;
+    public static final int IN = -1;
     public static final int ZREO = 0;
-    public static final int OUT = -1;
+    public static final int OUT = 1;
     private double power  = 0;
     private boolean hasBall;
 
@@ -29,8 +29,8 @@ public class Intake
     public void update()
     {
         hasBall = !limitSwitch.get(); //flip the value beacuse the roborio gets it backwards for some reason
-        motor.set(power);
-        if (hasBall) motor.set(0);
+        if (hasBall && power < 0) motor.set(0);
+        else motor.set(power);
     }
 
     public boolean hasBall()
