@@ -16,44 +16,6 @@ public class ObjectFinder
 	private int targetRed;
 	private int targetBlue;
 	private int targetGreen;
-	/*
-	private int thing;
-	private int tf;
-
-	public void tfdef() 
-	{
-		return;	
-	}
-
-	public class test implements Functions
-	{
-		public test()
-		{
-
-		}
-
-		public void tdf()
-		{
-			int t = 1 + 2;
-			int b = t++;
-			if (t > 0) return;
-			if (t < 0) return;
-			switch (t)
-			{
-				case 1:
-					return;
-				default: return;
-
-			}
-
-		}
-
-		public void sd()
-		{
-			return;
-		}
-	}
-	*/
 	
 	Objects targetObject;
 	
